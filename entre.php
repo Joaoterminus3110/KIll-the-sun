@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+<<<<<<< HEAD
     <header>
         <a href="index.php" class="HOME">
             <img
@@ -54,6 +55,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 class="soldorock5"
             >
         </a>
+=======
+  <header>
+    <a href="index.php" class="HOME">
+      <img src="Imagem/soldorock-removebg-preview.png" alt="Logo da KILL THE SUN" class="soldorock5" />
+    </a>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <nav>
+      <ul id="menu" class="menu">
+        <li><a href="index.php">HOME</a></li>
+        <li><a href="sobrejogo.php">SOBRE</a></li>
+        <li><a href="galeriadejogos.php">GALERIA DE JOGOS</a></li>
+        <li><a href="Jogosatuaisefuturos.php"> NOSSOS JOGOS </a></li>
+        <li><a href="contato.php">CONTATO</a></li>
+        <li><a href="jogar.php">JOGAR</a></li>
+        <li><a href="cadastro.php">CADASTRO</a></li>
+        <li><a href="entre.php">ENTRAR</a></li>
+      </ul>
+    </nav>
+  </header>
+<?php
+session_start();                       
+require_once __DIR__ . '/conexao.php'; 
+
+$pdo = Db::conn();                    
+
+$stmt = $pdo->query("SELECT * FROM usuarios");
+$usuarios = $stmt->fetchAll();
+
+foreach ($usuarios as $u) {
+    echo $u['nome'] . "<br>";
+}
+
+>>>>>>> cfcbe5c718776f38bee1747443688ece4a24a3a3
 
         <div class="menu-toggle" id="menu-toggle">☰</div>
 

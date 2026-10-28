@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
   <header>
-    <a href="index.html" class="HOME">
+    <a href="index.php" class="HOME">
       <img src="Imagem/soldorock-removebg-preview.png" alt="Logo da KILL THE SUN" class="soldorock5" />
     </a>
     <div class="menu-toggle" id="menu-toggle">☰</div>
@@ -39,7 +39,18 @@ session_start();
   </form>
 </div>
 <?php
-include 'conexao.php';
+require_once __DIR__ . '/conexao.php'; 
+
+$pdo = Db::conn();                    
+
+
+$stmt = $pdo->query("SELECT * FROM usuarios");
+$usuarios = $stmt->fetchAll();
+
+foreach ($usuarios as $u) {
+    echo $u['nome'] . "<br>";
+}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome  = $_POST['nome'];
