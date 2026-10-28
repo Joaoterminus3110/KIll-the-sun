@@ -1,0 +1,6 @@
+.env 
+.git 
+.gitignore 
+database/
+nginx/
+docker-compose.yml 
